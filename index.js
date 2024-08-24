@@ -3,7 +3,10 @@ const cors = require('cors');
 const upload = require('express-fileupload');
 require('dotenv').config();
 const connectDB = require('./db'); // Import the database connection function
-
+const allowedOrigins = [
+  'https://mern-blog-ui.vercel.app/',
+  'http://localhost:3000'
+];
 const userRoutes = require('./routes/userRoutes');
 const postRoutes = require('./routes/postRoutes');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
@@ -14,7 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   credentials: true,
-  origin: "https://mern-blog-ui.vercel.app/",
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: "GET, POST, PUT, PATCH, DELETE",
   allowedHeaders: 'Authorization, Content-Type',
 }));
