@@ -39,7 +39,7 @@ app.use('/api/posts', postRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000; // Use process.env.PORT or default to 5000
+const PORT = process.env.PORT || 5001; // Use process.env.PORT or default to 5000
 
 
 
@@ -52,7 +52,6 @@ const PORT = process.env.PORT || 5000; // Use process.env.PORT or default to 500
 //   .catch(error => {
 //     console.error('Failed to connect to MongoDB:', error);
 //   });
-
 app.listen(PORT,()=>{
   console.log(`server running port no : ${PORT}`)
 })
