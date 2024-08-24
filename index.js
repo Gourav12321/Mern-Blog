@@ -1,8 +1,8 @@
+require('dotenv').config(); // Load environment variables from .env file
 const express = require('express');
 const cors = require('cors');
 const upload = require('express-fileupload');
-require('dotenv').config();
-const connectDB = require('./db'); // Import the database connection function
+const connectDB = require('./db');
 const allowedOrigins = [
   'https://mern-blog-ui.vercel.app/',
   'http://localhost:3000'
@@ -44,7 +44,6 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5001;
 
-// Connect to the database and then start the server
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
