@@ -16,7 +16,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.use(cors({
   credentials: true, 
-  origin: "https://mern-blog-3p87fqtvo-gourav-mauryas-projects.vercel.app/",
+  origin: "https://mern-blog-ui.vercel.app/",
   methods: "GET, POST, PUT, PATCH, DELETE",
   allowedHeaders: 'Authorization, Content-Type',
 
