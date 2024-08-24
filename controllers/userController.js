@@ -1,11 +1,10 @@
 const bcrypt = require('bcryptjs');
-const HttpError = require("../models/errorModel")
-const User = require('../models/userModel')
+const HttpError = require("../models/errorModel");
 const jwt = require('jsonwebtoken');
 const fs = require('fs')
 const path = require('path')
 const {v4: uuid} = require("uuid")
-
+const User = require("../models/userModel")
 //================================= Register A New User
 // Post : api/users/register
 //unprotected
